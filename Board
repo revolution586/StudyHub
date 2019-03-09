@@ -1,1 +1,6 @@
+package StudyHub;
+import javax.swing;
 
+public class extends JPanel {
+  public Board () {}
+  }
