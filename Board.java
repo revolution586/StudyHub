@@ -29,6 +29,10 @@ private void timeStudied {
     System.out.println(" You have studied for an additional: 25" + 1)
   }
 
+// I need to define variables that can work with the main frame , instead of making up my own variables
+// Player player = new Player ();
+// int (x, y) = Player ? //
+
 
      
 
