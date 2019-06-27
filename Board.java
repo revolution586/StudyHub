@@ -27,7 +27,11 @@ private void timeStudied {
   
   if (x > 25) {
     System.out.println(" You have studied for an additional: 25" + 1)
+    System.ImageUI ("src/resources/trophy.png ")
+    ImageUI.BOARD_HEIGHT = 480
+    ImageUI.BOARD_WIDTH = 360
   }
+
 
 // I need to define variables that can work with the main frame , instead of making up my own variables
 // Player player = new Player ();
