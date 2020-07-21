@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Testing : MonoBehaviour {
+  // This class is used for testing the game //
   
   [SerializeField] private LevelWindow levelWindow;
   [SerializeField] private Player player;
