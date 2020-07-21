@@ -3,7 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// You must begin every piece of code by establishing what you're using //
+// This file is meant to handle all of the base logic of the game //
+
 public class LevelSystem {
+  
+  // Because this class doesn't have complex variables, there's no need to add Mono Behaviour //
   
   public event EventHandler OnExperienceChanged;
   public event EventHandler OnLevelChanged;
@@ -13,19 +18,21 @@ public class LevelSystem {
   private int level;
   private int experience;
   
+  // Above, you set the integers for the level and the experience in the game //
+  
   public LevelSystem() {
     level = 0;
     experience = 0;
+    // In this code, you must set the integers to a number //
   }
   
-  public void AddExperience(int amount) {
+  public void AddExperience(int amount) {     // "int amount" is the parameter you'll be receiving for the amount of experience added //
     if (!IsMaxLevel()) {
-      experience += amount;
-      while (!IsMaxLevel() && experience >= GetExperienceToNextLevel(level)) {
-        // Enough experience to level up
+      experience += amount; // Here, you increase the experience by the amount using += //
+      while (!IsMaxLevel() && experience >= GetExperienceToNextLevel(level)) { //This code is meant to establish what happens when you have enough experience to level up //
         experience -= GetExperienceToNextLevel(level);
-        level++;
-        if (OnLevelChanged != null) OnLevelChanged(this, EventArgs.Empty);
+        level++; // Increase the level //
+        if (OnLevelChanged != null) OnLevelChanged(this, EventArgs.Empty); // You reset your experience, by reducing the experience by the amount to reach the next level// 
       }
       if (OnExperienceChanged != null) OnExperienceChanged(this, EventArgs.Empty);
     }
