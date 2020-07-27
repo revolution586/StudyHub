@@ -6,3 +6,6 @@ So far there have been no developments, as I'm struggling to create the interfac
 
 Update #2:
 I'm just going to reset everything. I'll just make a RPG.
+
+Update #3:
+A timer has been added to the game. Now I need to make it so that stopping the timer will trigger a 25XP increase in the level system of the game.
