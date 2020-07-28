@@ -32,44 +32,44 @@ public class LevelSystem {
       while (!IsMaxLevel() && experience >= GetExperienceToNextLevel(level)) { //This code is meant to establish what happens when you have enough experience to level up //
         experience -= GetExperienceToNextLevel(level);
         level++; // Increase the level //
-        if (OnLevelChanged != null) OnLevelChanged(this, EventArgs.Empty); // You reset your experience, by reducing the experience by the amount to reach the next level// 
+        if (OnLevelChanged != null) OnLevelChanged(this, EventArgs.Empty); // You reset your experience, by reducing the experience by the amount to reach the next level // 
       }
-      if (OnExperienceChanged != null) OnExperienceChanged(this, EventArgs.Empty);
+      if (OnExperienceChanged != null) OnExperienceChanged(this, EventArgs.Empty); // You are restating the same line of code to make the system understand your intentions //
     }
   }
   
-  public int GetLevelNumber() {
-    return level;
+  public int GetLevelNumber() { // You are asking the public integer GetLevelNumber to return a level number (e.g. Level 10) in correlation to the required XP that's been obtained //
+    return level; // The level is being returned as the new number after the XP was gained //
   }
   
-  public float GetExperienceNormalized() {
-    if (IsMaxLevel()) {
+  public float GetExperienceNormalized() { // This float variable is meant to normalize the experience system to return a new level in order to get to the next level //
+    if (IsMaxLevel()) { // Don't forget, a float variable is contains numbers to needed to activate a function //
       return 1f;
     } else {
-      return (float) experience / GetExperienceToNextLevel(level);
+      return (float) experience / GetExperienceToNextLevel(level); // Return the designated float of numbers in order to GetExperienceToNextLevel(level) //
     }
   }
   
-  public int GetExperience() {
+  public int GetExperience() { // You are establishing the public integer GetExperience to return experience once that experience has been gained through playing //
     return experience;
   }
   
   public int GetExperienceToNextLevel(int level) {
-    if (level < experiencePerLevel.Length) {
-      return experiencePerLevel[level];
-    } else {
+    if (level < experiencePerLevel.Length) { // To get to the next level through required experience, if your current level in the game is less than the required number of experience needed to enter the next level //
+      return experiencePerLevel[level]; // Return the required experiencePerLevel variable in response, meaning that the level won't change if you don't get enough XP //
+    } else { // Otherwise //
       // Level Invalid
-      Debug.LogError("Level invalid: " + level);
-      return 100;
+      Debug.LogError("Level invalid: " + level); // You are at the wrong level and an error has occurred //
+      return 100; // Return the 100 XP that couldn't be registered due to the Debug.LogError //
     }
   }
   
-  public bool IsMaxLevel() {
+  public bool IsMaxLevel() { // For this boolean variable, when you're at the maximum level, you're telling the system to stay at that level through return IsMaxLevel //
     return IsMaxLevel(level);
   }
   
   public bool IsMaxLevel(int level) {
-    return level == experiencePerLevel.Length - 1;
+    return level == experiencePerLevel.Length - 1; // When you assign IsMaxLevel to int level, you are telling the system to stop increasing the level if the experiencePerLevel.Length is getting reduced (-1) by one integer //
   }
   
 }
