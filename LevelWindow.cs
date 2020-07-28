@@ -1,15 +1,15 @@
-using System.Collections;
+using System.Collections; // Write down all necessary components used for UnityEngine //
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using CodeMonkey.Utils;
 
-public class LevelWindow: MonoBehaviour {
+public class LevelWindow: MonoBehaviour { // The public class LevelWindow is meant to handle the GUI aspect of the leveling system //
   
-  private Text levelText;
-  private Image experienceBarImage;
-  private LevelSystem levelSystem;
-  private LevelSystemAnimated levelSystemAnimated;
+  private Text levelText; // You are creating the 'Text' aspect of the game //
+  private Image experienceBarImage; // You creating the experienceBarImage aspect of the game //
+  private LevelSystem levelSystem; // You are inputting the LevelSystem to connect it to other GUI aspects of the game //
+  private LevelSystemAnimated levelSystemAnimated; // You are inputting the LevelSystemAnimated aspect to connect it to other GUI aspects of the game //
   
   private void Awake() {
     levelText = transform.Find("levelText").GetComponent<Text>();
@@ -24,11 +24,11 @@ public class LevelWindow: MonoBehaviour {
     experienceBarImage.fillAmount = experienceNormalized;
   }
   
-  private void SetLevelNumber(int levelNumber) {
-    levelText.text = "LEVEL\n" + (levelNumber + 1);
+  private void SetLevelNumber(int levelNumber) { // You are setting the level number of the game in response to the changing integer levelNumber //
+    levelText.text = "LEVEL\n" + (levelNumber + 1); // If the levelText.text has a point of 'levelNumber + 1' added to it, then state the level and it's number in the experienceBarImage using "LEVEL\n" //
   }
   
-  public void SetLevelSystem(LevelSystem levelSystem) {
+  public void SetLevelSystem(LevelSystem levelSystem) { // You are setting the levelSystem //
     this.levelSystem = levelSystem;
   }
   
