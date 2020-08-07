@@ -3,4 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Window_Items : MonoBehaviour {
+  
+  private void Start () {
+    for (int i = 1; i <= 6; i++) {
+      ItemInfo itemInfo = transform.Find("itemBtn_" + i).GetComponent<ItemInfo>();
+    }
+  }
+}
 
