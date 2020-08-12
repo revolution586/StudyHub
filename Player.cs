@@ -11,6 +11,7 @@ public class Player : MonoBehaviour { // Every player in any game needs a privat
  [SerializeField] private Texture2D headTexture; // The headTexutre is a Texture2D variable meant to input the head of the character //
  [SerializeField] private Texture2D helmet1Texture; // Because this player will be using items, there will be two textured assets, helmet1 and helmet2 //
  [SerializeField] private Texture2D helmet2Texture;
+ [SerializeField] private Texture2D helmet3Texture;
  
  private Player_Base playerBase; // Aside from setting the 2D textures, you must also set the materials for the player //
  private Material material; // This private variable is meant to connect Materials to the character //
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour { // Every player in any game needs a privat
   None, // There is no private data stored into these variables //
   Helmet_1, // Because you'll be equipping certain items in the game, these items will include the two helmets mentioned earlier //
   Helmet_2,
+  Helmet_3,
  }
  
  private void Awake() { // 'private void Awake' is a private variable that makes the equipping, player objects, and materials move into action //
@@ -94,6 +96,9 @@ public class Player : MonoBehaviour { // Every player in any game needs a privat
   case Equip.Helmet_2;
    headPixels = helmet2Texture.GetPixels(0, 0, 128, 128); // You are setting the dimensions of Helmet2 pixels to 128x128 //
    break; // break means pause once the dimensions have been set //
+  case Equip.Helmet_3;
+    headPixels = helmet3Texture.GetPixels(0, 0, 128, 128);
+    break;
   }
   texture.SetPixels(4, 384, 128, 128, headPixels); // To finalize setting all of the dimensions for the pixels, including the headTexture, you must set the dimensions to (4, 384, 128, 128) //
   
