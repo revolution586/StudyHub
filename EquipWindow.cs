@@ -9,6 +9,7 @@ public class EquipWindow : MonoBehaviour { // The point of this class is to esta
   [SerializeField] private Sprite headSprite; // The headSprite sprite must be equipped for the game //
   [SerializeField] private Sprite helmet1Sprite; // The helmet1Sprite sprite must be equipped for the game //
   [SerializeField] private Sprite helmet2Sprite; // The helmet2Sprite sprite must be equipped for the game //
+  [SerializeField] private Sprite helmet3Sprite; 
   
   private LevelSystem levelSystem; // In relation to equipping items, the LevelSystem must work along with EquipWindow when choosing new available items after leveling up //
   
@@ -28,10 +29,19 @@ public class EquipWindow : MonoBehaviour { // The point of this class is to esta
 			Tooltip_Warning.ShowTooltip_Static("Level Required 10!"); // You order the game to give Tooltip_Warning stating 'Level Required 10!' to be eligible to equip the item in case you haven't reached level 10 //
 		}
 	};
+	transform.Find("equipHelmet3Btn").GetComponent<Button_UI>().ClickFunc = () => {
+		if (levelSystem.GetLevelNumber() >= 9) {
+			player.SetEquip(Player.Equip.Helmet_3);
+		} else {
+			Tooltip_Warning.ShowTooltip_Static("Level Required 15!");
+		}
+	};
 	
 	Tooltip_ItemStats.AddTooltip(transform.Find("equipNoneBtn"), headSprite, "None", "Just your head, not much protectin", 1); // You are setting the variable Tooltip_ItemStates to AddToolTop to communicate that the headSprite isn't very effective //
 	Tooltip_ItemStats.AddTooltip(transform.Find("equipHelmet1Btn"), helmet1Sprite, "Basic Helmet", "Simple protetion, better than nothing", 5); // For the next item, which is helmet1Sprite, you are stating that it's a basic helmet using Tooltip_ItemStats.AddTooltip //
 	Tooltip_ItemStats.AddTooltip(transform.Find("equipHelmet2Btn"), helmet2Sprite, "Epic Helmet", "Epic protection, looks great too!", 10); // You are revealing for helmet2Sprite that it's an 'Epic Helmet' with 'Epic protection, looks great too!' //
+	Tooltip_ItemStats.AddTooltip(transform.Find("equipHelmet3Btn"), helmet3Sprite, "Awesome Helmet", "This button just does cool stuff I guess", 15); // You are revealing for helmet2Sprite that it's an 'Epic Helmet' with 'Epic protection, looks great too!' //
+
 }
 
 	public void SetLevelSystem(LevelSystem levelSystem) { // You are concluding the line of code by setting the LevelSystem with all of the EquipWindow variables intact //
