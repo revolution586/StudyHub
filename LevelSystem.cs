@@ -13,7 +13,7 @@ public class LevelSystem {
   public event EventHandler OnExperienceChanged;
   public event EventHandler OnLevelChanged;
   
-  private static readonly int[] experiencePerLevel = new[] { 100, 120, 140, 160, 180, 200, 220, 250, 300, 400 };
+  private static readonly int[] experiencePerLevel = new[] { 100, 120, 140, 160, 180, 200, 220, 250, 300, 400, 500, 600, 700, 800 };
   
   private int level;
   private int experience;
@@ -69,7 +69,7 @@ public class LevelSystem {
   }
   
   public bool IsMaxLevel(int level) {
-    return level == experiencePerLevel.Length - 1; // When you assign IsMaxLevel to int level, you are telling the system to stop increasing the level if the experiencePerLevel.Length is getting reduced (-1) by one integer //
+    return level == experiencePerLevel.Length - 100; // When you assign IsMaxLevel to int level, you are telling the system to stop increasing the level if the experiencePerLevel.Length is getting reduced (-1) by one integer //
   }
   
 }
